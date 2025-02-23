@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUVA Ramanujan college</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="website icon" type="png" href="YUVA Fevicon.png">
+    <style>
+        :root {
+            --yuva-blue: #1e3799;
+            --yuva-orange: #f39c12;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FFFFE0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .loader-container {
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            opacity: 0;
+            transform: scale(0.5);
+            border-radius: 50%;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5), 0 6px 12px rgba(255, 255, 255, 0.1) inset;
+            animation: logoReveal 1.5s ease forwards;
+            /* Removed pulse animation, logo stays stable */
+            position: relative;
+            z-index: 2;
+        }
+
+        .loading-ring {
+            position: absolute;
+            top: 33%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 250px;
+            border: 4px solid rgba(243, 243, 243, 0.3);
+            border-top: 4px solid var(--yuva-blue);
+            border-right: 4px solid var(--yuva-orange);
+            border-radius: 50%;
+            animation: spin 1.2s linear infinite;
+            z-index: 1;
+        }
+
+        .tagline {
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards;
+            animation-delay: 1s;
+            color: var(--yuva-blue);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .loading-text {
+            margin-top: 1rem;
+            color: var(--yuva-orange);
+            font-size: 1rem;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes logoReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .content {
+            opacity: 0;
+            display: none;
+        }
+
+        .content.visible {
+            opacity: 1;
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+
+        .loader-container.hidden {
+            display: none;
+        }
+
+        /* Added subtle shadow to make logo pop */
+        .logo-wrapper {
+            position: relative;
+            display: inline-block;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader-container">
+        <div class="loading-ring"></div>
+        <div class="logo-wrapper">
+            <img src="Images/YUVA logo.png" alt="YUVA Logo" class="logo">
+        </div>
+        <h1 class="tagline">Youth United for Vision and Action</h1>
+        <p class="loading-text">Loading</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.querySelector('.loader-container');
+
+            // Simulate loading time
+            setTimeout(() => {
+                loader.classList.add('hidden');
+
+                // ✅ Redirect to home page after loading completes
+                window.location.href = "home.html";
+            }, 4000); // Redirects after 4 seconds
+
+            // Progress counter
+            let progress = 0;
+            const loadingText = document.querySelector('.loading-text');
+
+            const updateProgress = () => {
+                if (progress < 100) {
+                    progress++;
+                    loadingText.textContent = `Loading ${progress}%`;
+                    setTimeout(updateProgress, 34);
+                }
+            };
+
+            updateProgress();
+        });
+
+    </script>
+</body>

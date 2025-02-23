@@ -1,0 +1,538 @@
+body {
+    background-color: #ffffe0;
+    /* Light pink color */
+    font-family:Raleway;
+    /* Adjust your font family if needed */
+    color: #333;
+    /* Ensure text is visible on the light pink background */
+    margin: 0;
+    padding: 0;
+    /* max-width: fit-content; */
+    overflow-x: hidden;
+}
+
+
+/* Optional: If you want the header and footer to have a different color or style, you can adjust them separately */
+header {
+    padding: 1rem 0;
+}
+
+
+/* Make sure links are visible and stand out */
+a {
+    color: #06d6a0;
+    /* Adjust link color for visibility on the pink background */
+}
+
+a:hover {
+    color: #1a1a2e;
+    /* Darker color for hover effect */
+}
+
+html {
+    font-family:Raleway;
+    /* flex-direction: column; */
+    background-color: lightyellow;
+    color: #333;
+    box-sizing: border-box;
+    height: 100%;
+
+}
+
+/* dark mode */
+:root {
+    --background-light: #ffffff;
+    --text-light: #333333;
+    --background-dark: #282c34;
+    --text-dark: #ffffff;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .event-card {
+    background: linear-gradient(135deg, #004953, #007377);
+
+}
+body.dark-mode .event-card:hover{
+    background: linear-gradient(135deg, #252525,#1a1d23);
+}
+
+body.dark-mode .event-card p {
+    color: whitesmoke;
+}
+
+body.dark-mode .event-card h3 {
+    color: whitesmoke;
+}
+body.dark-mode .nav-links.active{
+    background-color: #1a1d23;
+}
+
+
+body.dark-mode header {
+    background: #1a1d23;
+}
+
+body.dark-mode footer {
+    background: #1a1d23;
+}
+
+
+/* Dark Mode Toggle Button */
+.theme-toggle {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    margin-left: 1rem;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle.dark {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+}
+
+.toggle-circle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle.dark .toggle-circle {
+    transform: translateX(30px);
+}
+
+/* Icons inside toggle */
+.toggle-circle::before {
+    content: '☀️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+}
+
+.theme-toggle.dark .toggle-circle::before {
+    content: '🌙';
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        position: absolute;
+        top: 2rem;
+        right: 4rem;
+        width: 50px;
+        height: 25px;
+    }
+
+    .toggle-circle {
+        width: 21px;
+        height: 21px;
+    }
+
+    .theme-toggle.dark .toggle-circle {
+        transform: translateX(25px);
+    }
+
+    .toggle-circle::before {
+        font-size: 12px;
+    }
+}
+
+header {
+    background: #2E2E29;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Soft shadow */
+    position: sticky;
+    /* Sticky header */
+    /* top: 0; */
+    z-index: 1000;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* General 3D Logo Styling */
+.logo-3d {
+    height: 65px;
+    width: 65px;
+    border-radius: 50px;
+    /* Smooth rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2),
+        0 6px 12px rgba(255, 255, 255, 0.1) inset;
+    /* 3D shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect for 3D Interaction */
+.logo-3d:hover {
+    transform: translateY(-5px) scale(1.1);
+    /* Pops the logo forward */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3),
+        0 8px 16px rgba(255, 255, 255, 0.1) inset;
+}
+
+/* Active Effect (Click) */
+.logo-3d:active {
+    transform: translateY(2px) scale(0.98);
+    /* Subtle press-in effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+        0 4px 8px rgba(255, 255, 255, 0.05) inset;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    margin-left: 40rem;
+    padding: 0;
+    gap: 1rem;
+}
+
+.nav-links li a {
+    color: #2E2E29;
+    /* Dark gray for better readability */
+    font-size: 1rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    background: linear-gradient(135deg, #DDDDC7, #AEAA8F); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle button shadow */
+}
+
+.nav-links li a:hover {
+    background: linear-gradient(135deg, #AEAA8F, #535245);
+    /* Color change on hover */
+    transform: scale(1.1);
+    /* Slight zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    /* Stronger shadow on hover */
+}
+
+nav ul li a:active {
+    transform: scale(0.95);
+    /* Subtle click effect */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    background-color: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 3px 0;
+    transition: 0.3s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .logo-3d {
+        height: 55px;
+        width: 55px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: #2E2E29;
+        position: absolute;
+        top: 80%;
+        right: 0;
+        width: 100%;
+        padding: 1rem 0;
+        z-index: 1001;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0.5rem;
+    }
+
+    .nav-links li a {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        width: 80%;
+        text-align: center;
+        background: linear-gradient(135deg, #DDDDC7, #AEAA8F);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        color: #2E2E29;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links li a:hover {
+        background: linear-gradient(135deg, #AEAA8F, #535245);
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-toggle {
+
+        display: flex;
+        position: absolute;
+        top: 2rem;
+        right: 1rem;
+        z-index: 1001;
+        cursor: pointer;
+    }
+
+    .menu-toggle div {
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 4px 0;
+        transition: all 0.3s ease;
+    }
+
+    header {
+        position: relative;
+        height: 4rem;
+        z-index: 1000;
+    }
+}
+
+
+
+
+/* Footer */
+footer {
+    background-color: #2E2E29;
+    /* Dark background */
+    color: #ffffff;
+    /* White text */
+    padding: 0.5rem 0.5rem;
+    width: auto;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    /* Align items at both ends */
+    align-items: center;
+    /* Vertically center items */
+    flex-wrap: wrap;
+    /* Allows wrapping on smaller screens */
+}
+
+#footer-text {
+    font-size: 15px;
+    color: #ffffff;
+    text-align: center;
+    padding-left: 10px;
+    /* flex: auto; */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    padding-right: 3.5rem;
+}
+
+.icon {
+    color: #ffffff;
+    /* White icon color */
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease transform 0.2s;
+}
+
+.icon:hover {
+    color: #ffd700;
+    /* Highlight color on hover */
+    transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        /* Center everything on smaller screens */
+    }
+
+    #footer-text {
+        margin-bottom: 10px;
+        /* Add some spacing for better layout */
+    }
+
+    .social-icons {
+        justify-content: center;
+        padding-left: 3.5rem;
+        /* Center icons on smaller screens */
+    }
+}
+
+/* cards of events */
+/* Events Container */
+.events-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns */
+    gap: 15px;
+    padding: 40px;
+    justify-items: center;
+}
+
+.event-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    min-height: 300px;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-details {
+    padding: 20px;
+}
+
+.event-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.event-date {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+.event-description {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.event-link {
+    display: inline-block;
+    font-size: 1rem;
+    color: orange;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.event-link:hover {
+    color: red;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .events-container {
+        grid-template-columns: 1fr;
+        /* Stack into 1 column on small screens */
+        padding: 20px;
+    }
+}
+
+/* Scroll to top button */
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    bottom: 45px;
+    right: 10px;
+    background-color:#535245;
+    /* Green */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    padding-bottom: 1rem;
+    justify-content: center;
+    justify-items: center;
+    display: block;
+    opacity: 0;
+    /* Initially hidden */
+    transition: opacity 0.5s ease, transform 0.1s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#scrollToTopBtn:hover {
+    background-color: #ED6D73;
+    /* Dark background on hover */
+    transform: scale(1.1);
+    /* Slight zoom on hover */
+}
+
+#scrollToTopBtn.show {
+    opacity: 1;
+    /* Make it visible when the user scrolls down */
+    transform: scale(1);
+    /* Move it into view */
+}
+@media (max-width: 768px) {
+    #scrollToTopBtn {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      bottom: 60px;
+      right: 15px;
+      background-color: #535245;
+      /* Green */
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 2rem;
+      cursor: pointer;
+      padding-bottom: 2rem;
+      justify-content: center;
+    }
+  }

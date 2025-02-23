@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YUVA Ramanujan college</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="website icon" type="png" href="YUVA Fevicon.png">
+</head>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+  import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
+  // Firebase Configuration
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAvoBoFFs53oRraHOf6UVkhRJkwMoETibQ",
+    authDomain: "ramanujan-college-yuva.firebaseapp.com",
+    databaseURL: "https://ramanujan-college-yuva-default-rtdb.firebaseio.com/",
+    projectId: "ramanujan-college-yuva",
+    storageBucket: "ramanujan-college-yuva.firebasestorage.app",
+    messagingSenderId: "848928599287",
+    appId: "1:848928599287:web:f0dcbbe0b0c94b27d9f7f2"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const pageViewsRef = ref(database, "pageViews");
+  const totalVisitsRef = ref(database, "totalVisits");
+
+  // Function to update the counter display
+  function updateCounter(snapshot, elementId) {
+    const count = snapshot.val() || 0;
+    document.getElementById(elementId).textContent = count;
+  }
+
+  // Listen for real-time updates
+  onValue(pageViewsRef, (snapshot) => updateCounter(snapshot, "pageViews"));
+  onValue(totalVisitsRef, (snapshot) => updateCounter(snapshot, "totalVisits"));
+
+  // Function to increment counters
+  function incrementCounters() {
+    console.log("Increment function called");
+
+    // Always increment page views
+    runTransaction(pageViewsRef, (currentViews) => {
+      console.log("Updating pageViews:", currentViews);
+      return (currentViews || 0) + 1;
+    }).catch((error) => console.error("Error updating pageViews:", error));
+
+    // Increment total visits only once per session
+    if (!sessionStorage.getItem("visited")) {
+      console.log("New visit detected, updating totalVisits");
+      runTransaction(totalVisitsRef, (currentVisits) => {
+        console.log("Updating totalVisits:", currentVisits);
+        return (currentVisits || 0) + 1;
+      }).catch((error) => console.error("Error updating totalVisits:", error));
+
+      sessionStorage.setItem("visited", "true"); // Mark session as visited
+    }
+  }
+
+  // Call the function on page load
+  incrementCounters();
+
+
+</script>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo-container">
+        <a href="https://yuva.ind.in/" target="_blank">
+          <img class="logo-3d" src="Images/YUVA logo.png" alt="YUVA Logo">
+        </a>
+        <a href="https://ramanujancollege.ac.in/" target="_blank">
+          <img class="logo-3d" src="Images/College Logo.png" alt="College Logo">
+        </a> <!-- College Logo -->
+      </div>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="theme-toggle" id="themeToggle">
+        <div class="toggle-circle"></div>
+      </div>
+    </nav>
+  </header>
+  <marquee class="blink">To Register for YUVA Ramanujan College <a href="https://forms.gle/cVJ3HZJPMMpKXvCN6">Click
+      Here</a></marquee>
+  <div class="hero">
+    <div class="banner">
+      <img src="Images/Image 1.jpg" alt="College Photo 1" class="banner-image">
+      <img src="Images/Image 2.jpg" alt="College Photo 2" class="banner-image">
+      <img src="Images/Image 3.jpg" alt="College Photo 3" class="banner-image">
+    </div>
+    <div class="hero-text">
+      <h1>YUVA RAMANUJAN</h1>
+      <h2>Youth United For Vision and Action</h2>
+      <h2>यूथ यूनाइटेड फॉर विजन एंड एक्शन</h2>
+      <p>Empowering the youth for a better tomorrow.</p>
+      <!-- <a href="https://yuva.ind.in/vimarsh-2024/" target="_blank" class="cta-button">vimarsh-2024</a> -->
+    </div>
+  </div>
+  <section id="about" class="card">
+    <h2>About Us</h2>
+    <div class="card-content">
+      <p>Since the dawn of civilizations, youth have played a significant role in determining the course of society. The
+        adage "the youth of today are the future of tomorrow" is well known to all of us. The youth have the power to
+        change the trajectory of history. They are the motivation behind shaping the country for a brighter future.</p>
+      <p>To catalyse the vitality of the youth and provide a platform for constructive activism, Youth United for Vision
+        and Action (YUVA) was established in 2016. YUVA is a youth-based, youth-run platform for Academic, Social, and
+        Cultural endeavours.</p>
+    </div>
+  </section>
+
+  <section id="objectives" class="card">
+    <h2>Objectives of YUVA</h2>
+    <div class="card-content">
+      <ul>
+        <li>To support young people's enthusiasm and provide them with a venue for engaging in meaningful activism.</li>
+        <li>To provide a platform for students to organize, perform, and participate in Academic, Cultural, Social, and
+          Sports Activities.</li>
+        <li>To encourage students to participate in learning activities, hone leadership, and organizational skills.
+        </li>
+        <li>To offer a shared forum for conversation and the exchange of ideas among the youth.</li>
+        <li>To redesign the current research environment and foster innovation in methodology and philosophy.</li>
+      </ul>
+    </div>
+  </section>
+  <div class="about-section">
+    <!-- Card 1 -->
+    <div class="about-card">
+      <div class="card-image" style="background-image: url('Images/Card\ Image\ 1.jpeg');"></div>
+      <div class="card-content">
+        <h3 class="card-title">Our Mission</h3>
+        <p class="card-description">
+          To unite and empower youth to drive societal change through impactful actions and community welfare
+          initiatives.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="about-card">
+      <div class="card-image" style="background-image: url('Images/Card\ Image\ 2.jpg');"></div>
+      <div class="card-content">
+        <h3 class="card-title">Our Vision</h3>
+        <p class="card-description">
+          To foster a vibrant youth network committed to innovation, inclusivity, and sustainable development.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="about-card">
+      <div class="card-image" style="background-image: url('Images/Card\ Image\ 3.jpg');"></div>
+      <div class="card-content">
+        <h3 class="card-title">Our Values</h3>
+        <p class="card-description">
+          Collaboration, compassion, and courage form the foundation of our efforts to create a positive societal
+          impact.
+        </p>
+      </div>
+    </div>
+  </div>
+  </section>
+  <section id="events" class="card">
+    <h2>Recent Events</h2>
+    <div class="card-content">
+      <h3>Vimarsh 2K24</h3>
+      <p>Date: November 25, 2024</p>
+      <p>Details about the event. This can include a brief summary or key takeaways.</p>
+      <a href="https://yuva.ind.in/vimarsh-2024/" target="_blank" class="cta-button">Vimarsh-2024</a>
+    </div>
+  </section>
+
+  <div class="button-container">
+    <a href="Calandar.html" class="btn" target="_blank">Go to Calendar</a>
+  </div>
+  <!-- team members  -->
+  <div id="team" class="team-section">
+    <h2>Our Team</h2>
+    <div class="team-container">
+      <div class="team-member">
+        <div class="member-image">
+          <img src="Images/Subodh sir image.png" alt="Team Member 1">
+        </div>
+        <div class="member-info">
+          <h3>Subodh Kumar</h3>
+          <p>Convenor</p>
+          <div class="social-icons2">
+            <a href="#" class="icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="member-image">
+          <img src="Images/team-member-2.jpg" alt="Team Member 2">
+        </div>
+        <div class="member-info">
+          <h3>Jane Smith</h3>
+          <p>Vice President</p>
+          <div class="social-icons2">
+            <a href="#" class="icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="member-image">
+          <img src="Images/team-member-3.jpg" alt="Team Member 3">
+        </div>
+        <div class="member-info">
+          <h3>Mike Johnson</h3>
+          <p>Secretary</p>
+          <div class="social-icons2">
+            <a href="#" class="icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button id="scrollToTopBtn" title="Go to top">↑</button>
+  <footer class="footer">
+    <p id="footer-text">© 2024 Youth United Vision and Action</p>
+
+    <head>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+    </head>
+
+    <div id="social-icons2" class="social-icons">
+      <a href="https://facebook.com" target="_blank" class="icon" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com" target="_blank" class="icon" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.instagram.com/yuva_ramanujan/?utm_source=ig_web_button_share_sheet" target="_blank"
+        class="icon" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://linkedin.com" target="_blank" class="icon" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+    <div class="counter-container">
+      <h1>Real-time Page Counter</h1>
+      <div class="counter">
+        <p>Page Views: <span id="pageViews">0</span></p>
+        <p>Total Visits: <span id="totalVisits">0</span></p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

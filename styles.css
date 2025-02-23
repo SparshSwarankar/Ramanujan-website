@@ -1,0 +1,1697 @@
+body {
+  background-color: #FFFFE0;
+  /* Light pink color */
+  font-family: Raleway;
+  /* Adjust your font family if needed */
+  color: #333;
+  /* Ensure text is visible on the light pink background */
+  margin: 0;
+  padding: 0;
+  /* max-width: fit-content; */
+  overflow-x: hidden;
+}
+
+header {
+  padding: 1rem 0;
+}
+
+a:hover {
+  color: #1a1a2e;
+  /* Darker color for hover effect */
+}
+
+html {
+  font-family: Raleway;
+  /* flex-direction: column; */
+  background-color: lightyellow;
+  color: #333;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+
+/* dark mode */
+:root {
+  --background-light: #ffffff;
+  --text-light: #333333;
+  --background-dark: #282c34;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: var(--background-dark);
+}
+
+html.dark-mode {
+  background-color: var(--background-dark);
+}
+
+body.dark-mode section {
+  background-color: #004953;
+  border-color: #282c34;
+}
+
+body.dark-mode section h2 {
+  color: #00E1D2;
+}
+
+body.dark-mode section .card-content p {
+  color: whitesmoke;
+}
+
+body.dark-mode section .card-content li {
+  color: whitesmoke;
+}
+
+body.dark-mode .about-card {
+  background: linear-gradient(135deg, #004953, #007377);
+}
+
+body.dark-mode .about-card:hover {
+  background: linear-gradient(135deg, #252525, #1a1d23);
+}
+
+body.dark-mode .about-card p {
+  color: whitesmoke;
+}
+
+body.dark-mode .about-card h3 {
+  color: whitesmoke;
+}
+
+body.dark-mode .blink {
+  color: whitesmoke;
+}
+
+body.dark-mode .blink a {
+  color: yellow;
+}
+
+body.dark-mode .blink a:hover {
+  color: lightblue;
+}
+
+body.dark-mode .nav-links.active {
+  background-color: #1a1d23;
+}
+
+body.dark-mode .event-details h2 {
+  color: whitesmoke;
+}
+
+body.dark-mode .event-time {
+  color: wheat;
+}
+
+body.dark-mode header {
+  background: #1a1d23;
+}
+
+body.dark-mode footer {
+  background: #1a1d23;
+}
+
+body.dark-mode .team-section {
+  background-color: #004953;
+}
+
+body.dark-mode .team-section h2 {
+  color: #00E1D2;
+}
+
+
+
+/* Dark Mode Toggle Button */
+.theme-toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  margin-left: 1rem;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle.dark {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+}
+
+.toggle-circle {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle.dark .toggle-circle {
+  transform: translateX(30px);
+}
+
+/* Icons inside toggle */
+.toggle-circle::before {
+  content: '☀️';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+.theme-toggle.dark .toggle-circle::before {
+  content: '🌙';
+}
+
+
+header {
+  background: #2E2E29;
+  /* Light yellow background with transparency */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Soft shadow */
+  position: sticky;
+  /* Sticky header */
+  /* top: 0; */
+  z-index: 1000;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* General 3D Logo Styling */
+.logo-3d {
+  height: 65px;
+  width: 65px;
+  border-radius: 50px;
+  /* Smooth rounded corners */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2),
+    0 6px 12px rgba(255, 255, 255, 0.1) inset;
+  /* 3D shadow effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect for 3D Interaction */
+.logo-3d:hover {
+  transform: translateY(-5px) scale(1.1);
+  /* Pops the logo forward */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3),
+    0 8px 16px rgba(255, 255, 255, 0.1) inset;
+}
+
+/* Active Effect (Click) */
+.logo-3d:active {
+  transform: translateY(2px) scale(0.98);
+  /* Subtle press-in effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(255, 255, 255, 0.05) inset;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  margin-left: 40rem;
+  padding: 0;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  color: #2E2E29;
+  /* Dark gray for better readability */
+  font-size: 1rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(135deg, #DDDDC7, #AEAA8F);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Subtle button shadow */
+}
+
+.nav-links li a:hover {
+  background: linear-gradient(135deg, #AEAA8F, #535245);
+  /* Color change on hover */
+  transform: scale(1.1);
+  /* Slight zoom effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  /* Stronger shadow on hover */
+}
+
+nav ul li a:active {
+  transform: scale(0.95);
+  /* Subtle click effect */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  background-color: #fff;
+  height: 3px;
+  width: 25px;
+  margin: 3px 0;
+  transition: 0.3s ease;
+}
+
+
+.blink {
+  color: black;
+  padding-top: 10px;
+}
+
+.blink a {
+  text-decoration: none;
+  color: red;
+}
+
+
+
+
+/* Footer */
+footer {
+  background-color: #2E2E29;
+  /* Dark background */
+  color: #ffffff;
+  /* White text */
+  padding: 0.5rem 0.5rem;
+  width: auto;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  /* Align items at both ends */
+  align-items: center;
+  /* Vertically center items */
+  flex-wrap: wrap;
+  /* Allows wrapping on smaller screens */
+}
+
+#footer-text {
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+  padding-left: 10px;
+  /* flex: auto; */
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  padding-right: 3.5rem;
+}
+
+.icon {
+  color: #ffffff;
+  /* White icon color */
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s ease transform 0.2s;
+}
+
+.icon:hover {
+  color: #ffd700;
+  /* Highlight color on hover */
+  transform: scale(1.2);
+}
+
+
+.counter-container {
+  text-align: right;
+  display: flex;
+  /* Align items in one line */
+  gap: 8px;
+  /* Space between elements */
+  align-items: center;
+  font-size: 10px;
+}
+
+.counter-container h1 {
+  font-size: 10px;
+  margin: 0;
+}
+
+.counter {
+  font-size: 10px;
+  margin: 0;
+  display: flex;
+  gap: 5px;
+  /* Small space between page views & total visits */
+}
+
+.counter p {
+  margin: 0;
+  /* Remove extra spacing */
+}
+
+/* Hero Section */
+
+
+.hero {
+  display: flex;
+  position: relative;
+  padding: 17rem 2rem;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: auto;
+  height: 1px;
+  overflow: hidden;
+  background-color: #1a1a2e;
+  border-radius: 1rem;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 1s ease-in-out;
+}
+
+.banner-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(0.4);
+  object-fit: cover;
+  opacity: 0.5;
+  top: 100%;
+  transition: top 2s ease-in-out;
+  position: absolute;
+}
+
+.banner-image.active {
+  top: 0;
+  z-index: 1;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffde59;
+  animation: fadeIn 3s ease-in-out;
+}
+
+.hero-text h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  color: #ff6347;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: slideDown 1s ease-in-out;
+}
+
+.hero-text h2 {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+  color: #f5a623;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: slideUp 1.2s ease-in-out;
+}
+
+.hero-text p {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  font-family: Raleway;
+  color: #1a1a2e;
+  font-weight: bold;
+  /* text-shadow: 2px 2px 4px rgba(0,0,0,0.5); */
+}
+
+
+
+.cta-button {
+  padding: 0.7rem 1.5rem;
+  background-color: #06d6a0;
+  color: #1a1a2e;
+
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s;
+  display: inline-block;
+  margin-top: 1rem;
+  /* Add space between text and button */
+}
+
+.cta-button:hover {
+  background-color: #1a1a2e;
+  color: #06d6a0;
+  transform: scale(1.1);
+  /* Slight zoom effect */
+}
+
+
+
+
+/* Keyframes for Banner Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+  position: fixed;
+  width: 45px;
+  height: 45px;
+  bottom: 45px;
+  right: 10px;
+  background-color: #535245;
+  /* Green */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  padding-bottom: 1rem;
+  justify-content: center;
+  justify-items: center;
+  display: block;
+  opacity: 0;
+  /* Initially hidden */
+  transition: opacity 0.5s ease, transform 0.1s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+#scrollToTopBtn:hover {
+  background-color: #ED6D73;
+  /* Dark background on hover */
+  transform: scale(1.1);
+  /* Slight zoom on hover */
+}
+
+#scrollToTopBtn.show {
+  opacity: 1;
+  /* Make it visible when the user scrolls down */
+  transform: scale(1);
+  /* Move it into view */
+}
+
+/* team section */
+
+.team-section {
+  padding: 1.5rem 1rem;
+  margin-top: 200px;
+  width: auto;
+  background-color: #D8CCC0;
+}
+
+.team-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.team-member {
+  background-color: #fff;
+  align-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  min-width: 250px;
+  max-width: 300px;
+  flex: 0 0 calc(33.333% - 1rem);
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.member-image {
+  position: relative;
+  height: 0;
+  padding-bottom: 100%;
+  /* Creates a square aspect ratio */
+  overflow: hidden;
+}
+
+.member-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover .member-image img {
+  transform: scale(1.1);
+}
+
+.member-info {
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.member-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.member-info p {
+  margin: 0.5rem 0 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.member-info .social-icons2 {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.member-info .social-icons2 .icon {
+  color: #333;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.member-info .social-icons2 .icon:hover {
+  color: #007bff;
+}
+
+
+/* Home page content */
+section {
+  padding: 3rem 2rem;
+  margin: 2rem auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 800px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateX(100px);
+  /* default position for animation*/
+  transition: all 1s, transform 1s ease-out;
+}
+
+
+/* Heading Styling */
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #444;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+/* Paragraph and List Styling */
+section p,
+section ul {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #535245;
+  margin: 0 0 1rem 0;
+  padding: 0 1rem;
+}
+
+/* List Item Styling */
+section ul li {
+  color: #535245;
+  margin-bottom: 0.8rem;
+}
+
+.card {
+  background-color: #ff7f85;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card h2 {
+  color: #2c3e50;
+  padding: 1rem;
+  margin: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+
+.about-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  padding: 1rem;
+}
+
+.about-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.card-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #7f8c8d;
+}
+
+
+
+/* Calander */
+#calendar {
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  width: 70%;
+  height: 500px;
+  max-width: 100%;
+  margin: 55px auto;
+}
+
+.fc-event {
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.fc-event:hover {
+  background-color: #1e90ff;
+  transform: scale(1.05);
+}
+
+/* Modern Event Details Section */
+.event-details {
+  width: 100%;
+  /* padding: 40px 10vw; */
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: rgba(0, 0, 0, 0.2);
+  /* Light grayish background */
+  color: #333;
+  /* Darker text for contrast */
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Event Title */
+.event-details h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* Date & Time */
+.event-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 1rem;
+  color: #666;
+  flex-wrap: wrap;
+}
+
+.event-time span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Ensures Proper Alignment */
+.event-time span img {
+  width: 18px;
+  /* Adjust the icon size */
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Icons (You can use FontAwesome or inline SVGs) */
+.event-time span::before {
+  content: '📅';
+  /* Calendar emoji or replace with an icon */
+  font-size: 1.2rem;
+}
+
+.fc-header-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+.fc-button.fc-today-button {
+  min-width: 60px;
+}
+
+.fc-button {
+  min-width: 60px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.fc-toolbar {
+  position: relative;
+  z-index: 10;
+  /* Ensure it's above other content */
+}
+
+.fc-button-group,
+.fc-button {
+  z-index: 15 !important;
+  /* Make buttons clickable */
+}
+
+
+
+
+#dateTooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.button-container {
+  position: fixed;
+  /* Fixed position to stay on scroll */
+  left: -58px;
+  /* Adjust distance from the right */
+  top: 50%;
+  /* Center vertically */
+  transform: translateY(-50%) rotate(-90deg);
+  /* Rotate the button */
+  z-index: 1000;
+  /* Ensure it's above other elements */
+}
+
+.btn {
+  display: inline-block;
+  background-color: #333;
+  /* Dark color for contrast */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 0px 0px 8px 8px;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+
+
+.fc-daygrid-day-number {
+  font-size: 18px;
+  /* Change this value to adjust the font size */
+  font-weight: bold;
+  color: black;
+}
+
+/* Change the color of the active or today's date */
+.fc-day-today {
+  background-color: #ffcc00 !important;
+  /* Set the background color of today's date */
+  color: #ffffff !important;
+  /* Set the text color of today's date */
+  font-weight: bold !important;
+  /* Make today's date text bold */
+  border-radius: 5px !important;
+  /* Add a border radius for rounded corners */
+}
+
+/* Change the hover effect to a different color */
+.fc-day:hover {
+  background-color: #ff6600 !important;
+  /* Change the background color on hover */
+  color: white !important;
+  /* Ensure the text color is white */
+  cursor: pointer !important;
+  /* Change cursor to pointer to indicate interactivity */
+}
+
+.fc-event-time {
+  display: none !important;
+
+}
+
+.fc-h-event .fc-event-title-container {
+  padding: 0.5rem;
+  text-align: left;
+  max-width: fit-content;
+  width: 1px;
+}
+
+
+/* Small devices (phones, 600px and below) */
+@media (max-width: 600px) {
+  .fc-toolbar-title {
+    font-size: 1.1em !important;
+  }
+
+  .fc-button {
+    font-size: 0.85em !important;
+  }
+
+  #calendar {
+    padding: 12px;
+  }
+
+  .event-time {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .fc-header-toolbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fc-toolbar-chunk {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .theme-toggle {
+    position: absolute;
+    top: 1.5rem;
+    right: 3rem;
+    width: 45px;
+    height: 22px;
+  }
+
+  .toggle-circle {
+    width: 19px;
+    height: 19px;
+  }
+
+  .theme-toggle.dark .toggle-circle {
+    transform: translateX(23px);
+  }
+
+  .toggle-circle::before {
+    font-size: 10px;
+  }
+
+  .logo-3d {
+    height: 50px;
+    width: 50px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2E2E29;
+    position: absolute;
+    top: 80%;
+    right: 0;
+    width: 100%;
+    padding: 0.8rem 0;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li a {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+    width: 85%;
+  }
+
+  .menu-toggle {
+    top: 1.8rem;
+    right: 0.8rem;
+  }
+
+  .menu-toggle div {
+    width: 22px;
+    height: 2.5px;
+  }
+
+  header {
+    height: 3.8rem;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #footer-text {
+    margin-bottom: 8px;
+  }
+
+  .social-icons {
+    justify-content: center;
+    padding-left: 2rem;
+  }
+
+  .hero-text h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff6347;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: slideDown 1s ease-in-out;
+  }
+
+  #scrollToTopBtn {
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    bottom: 50px;
+    right: 10px;
+    background-color: #535245;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding-bottom: 1.8rem;
+    justify-content: center;
+  }
+
+  .team-section {
+    padding: 1.5rem 0.8rem;
+    margin-top: 80px;
+  }
+
+  .team-container {
+    padding-bottom: 0.5rem;
+    justify-content: left;
+  }
+
+  .team-member {
+    min-width: 180px;
+    max-width: 220px;
+  }
+
+  .member-info {
+    padding: 0.8rem;
+  }
+
+  .member-info h3 {
+    font-size: 0.9rem;
+  }
+
+  .member-info p {
+    font-size: 0.7rem;
+  }
+
+  .member-info .social-icons .icon {
+    font-size: 0.9rem;
+  }
+
+  .card,
+  #objectives,
+  #about {
+    margin: 0.8rem;
+  }
+
+  section {
+    padding: 1.5rem 0.8rem;
+  }
+
+  section h2 {
+    font-size: 1.4rem;
+  }
+
+  section p,
+  section ul {
+    font-size: 0.85rem;
+  }
+
+  .about-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+}
+
+/* Medium devices (tablets, 768px and below) */
+@media (max-width: 768px) {
+  .fc-toolbar-title {
+    font-size: 1.2em !important;
+  }
+
+  .fc-button {
+    font-size: 0.9em !important;
+  }
+
+  #calendar {
+    padding: 15px;
+  }
+
+  .event-time {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .fc-header-toolbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fc-toolbar-chunk {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .theme-toggle {
+    position: absolute;
+    top: 2rem;
+    right: 4rem;
+    width: 50px;
+    height: 25px;
+  }
+
+  .toggle-circle {
+    width: 21px;
+    height: 21px;
+  }
+
+  .theme-toggle.dark .toggle-circle {
+    transform: translateX(25px);
+  }
+
+  .toggle-circle::before {
+    font-size: 12px;
+  }
+
+  .logo-3d {
+    height: 55px;
+    width: 55px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2E2E29;
+    position: absolute;
+    top: 80%;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0.5rem;
+  }
+
+  .nav-links li a {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    width: 80%;
+    text-align: center;
+    background: linear-gradient(135deg, #DDDDC7, #AEAA8F);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #2E2E29;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-links li a:hover {
+    background: linear-gradient(135deg, #AEAA8F, #535245);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .menu-toggle {
+    display: flex;
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  .menu-toggle div {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+  }
+
+  header {
+    position: relative;
+    height: 4rem;
+    z-index: 1000;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    /* Center everything on smaller screens */
+  }
+
+  #footer-text {
+    margin-bottom: 10px;
+    /* Add some spacing for better layout */
+  }
+
+  .social-icons {
+    justify-content: center;
+    padding-left: 3.5rem;
+    /* Center icons on smaller screens */
+  }
+
+  .hero-text h1 {
+    font-size: 3.6rem;
+    font-weight: bold;
+    color: #ff6347;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: slideDown 1s ease-in-out;
+  }
+
+  #scrollToTopBtn {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 60px;
+    right: 15px;
+    background-color: #535245;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    padding-bottom: 2rem;
+    justify-content: center;
+  }
+
+  .team-section {
+    padding: 2rem 1rem;
+    margin-top: 100px;
+  }
+
+  .team-container {
+    padding-bottom: 0.5rem;
+    justify-content: left;
+  }
+
+  .team-member {
+    min-width: 200px;
+    max-width: 250px;
+  }
+
+  .member-info {
+    padding: 1rem;
+  }
+
+  .member-info h3 {
+    font-size: 1rem;
+  }
+
+  .member-info p {
+    font-size: 0.8rem;
+  }
+
+  .member-info .social-icons .icon {
+    font-size: 1rem;
+  }
+
+  .card,
+  #objectives,
+  #about {
+    margin: 1rem;
+  }
+
+  section {
+    padding: 2rem 1rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  section p,
+  section ul {
+    font-size: 0.9rem;
+  }
+
+  .about-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Large devices (small laptops, 992px and below) */
+@media (max-width: 992px) {
+  .fc-toolbar-title {
+    font-size: 1.3em !important;
+  }
+
+  .fc-button {
+    font-size: 1em !important;
+  }
+
+  #calendar {
+    padding: 20px;
+  }
+
+  .event-time {
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  .fc-header-toolbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .fc-toolbar-chunk {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .theme-toggle {
+    top: 2.5rem;
+    right: 5rem;
+    width: 55px;
+    height: 28px;
+  }
+
+  .toggle-circle {
+    width: 23px;
+    height: 23px;
+  }
+
+  .theme-toggle.dark .toggle-circle {
+    transform: translateX(28px);
+  }
+
+  .toggle-circle::before {
+    font-size: 14px;
+  }
+
+  .logo-3d {
+    height: 60px;
+    width: 60px;
+  }
+
+  .nav-links {
+    top: 85%;
+  }
+
+  .nav-links li a {
+    font-size: 1.1rem;
+    padding: 1rem 1.8rem;
+    width: 75%;
+  }
+
+  .menu-toggle {
+    top: 2.5rem;
+    right: 1.2rem;
+  }
+
+  .menu-toggle div {
+    width: 27px;
+    height: 3px;
+  }
+
+  header {
+    height: 4.2rem;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #footer-text {
+    margin-bottom: 12px;
+  }
+
+  .social-icons {
+    justify-content: center;
+    padding-left: 4rem;
+  }
+
+  .hero-text h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ff6347;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: slideDown 1s ease-in-out;
+  }
+
+  #scrollToTopBtn {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    bottom: 70px;
+    right: 20px;
+    background-color: #535245;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 2.2rem;
+    cursor: pointer;
+    padding-bottom: 2.2rem;
+    justify-content: center;
+  }
+
+  .team-section {
+    padding: 2.5rem 1.5rem;
+    margin-top: 120px;
+  }
+
+  .team-container {
+    padding-bottom: 0.7rem;
+    justify-content: left;
+  }
+
+  .team-member {
+    min-width: 220px;
+    max-width: 270px;
+  }
+
+  .member-info {
+    padding: 1.2rem;
+  }
+
+  .member-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .member-info p {
+    font-size: 0.9rem;
+  }
+
+  .member-info .social-icons .icon {
+    font-size: 1.1rem;
+  }
+
+  .card,
+  #objectives,
+  #about {
+    margin: 1.2rem;
+  }
+
+  section {
+    padding: 2.5rem 1.5rem;
+  }
+
+  section h2 {
+    font-size: 1.6rem;
+  }
+
+  section p,
+  section ul {
+    font-size: 1rem;
+  }
+
+  .about-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1200px) {
+  .theme-toggle {
+    top: 3rem;
+    right: 6rem;
+    width: 60px;
+    height: 30px;
+  }
+
+  .toggle-circle {
+    width: 25px;
+    height: 25px;
+  }
+
+  .theme-toggle.dark .toggle-circle {
+    transform: translateX(30px);
+  }
+
+  .toggle-circle::before {
+    font-size: 16px;
+  }
+
+  .logo-3d {
+    height: 65px;
+    width: 65px;
+  }
+
+  .nav-links {
+    top: 90%;
+  }
+
+  .nav-links li a {
+    font-size: 1.2rem;
+    padding: 1.2rem 2rem;
+    width: 70%;
+  }
+
+  .menu-toggle {
+    top: 3rem;
+    right: 1.5rem;
+  }
+
+  .menu-toggle div {
+    width: 30px;
+    height: 3.5px;
+  }
+
+  header {
+    height: 4.5rem;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #footer-text {
+    margin-bottom: 14px;
+  }
+
+  .social-icons {
+    justify-content: center;
+    padding-left: 4.5rem;
+  }
+
+  .hero-text h1 {
+    font-size: 4.5rem;
+    font-weight: bold;
+    color: #ff6347;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: slideDown 1s ease-in-out;
+  }
+
+  #scrollToTopBtn {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 80px;
+    /* right: 25px; */
+    background-color: #535245;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 2.4rem;
+    cursor: pointer;
+    padding-bottom: 2.4rem;
+    justify-content: center;
+  }
+
+  .team-section {
+    padding: 3rem 2rem;
+    margin-top: 140px;
+  }
+
+  .team-container {
+    padding-bottom: 1rem;
+    justify-content:left;
+  }
+
+  .team-member {
+    min-width: 240px;
+    max-width: 300px;
+  }
+
+  .member-info {
+    padding: 1.5rem;
+  }
+
+  .member-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .member-info p {
+    font-size: 1rem;
+  }
+
+  .member-info .social-icons .icon {
+    font-size: 1.2rem;
+  }
+
+  .card,
+  #objectives,
+  #about {
+    margin: 1.5rem;
+  }
+
+  section {
+    padding: 3rem 2rem;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+  }
+
+  section p,
+  section ul {
+    font-size: 1.1rem;
+  }
+
+  .about-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
